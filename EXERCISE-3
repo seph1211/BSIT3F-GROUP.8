@@ -1,0 +1,31 @@
+<?php
+// Simulate file operations in memory by using a variable for online compilers
+// (Since many online compilers don't allow real file system operations)
+
+// Define a string as "file" content
+$fileContent = "";
+
+// Check if "file" exists (simulated by checking if $fileContent is empty)
+if (!empty($fileContent)) {
+    // a. file_get_contents: Read the content (simulate by accessing the variable)
+    echo "Content of 'example.txt':\n$fileContent\n";
+} else {
+    // b. file_put_contents: Simulate file creation by assigning content to the variable
+    echo "File 'example.txt' does not exist. Creating the file...\n";
+    $fileContent = "This is the initial content.\n";
+}
+
+// Append new content (simulating appending by concatenation)
+$newContent = "This is additional content.\n";
+$fileContent .= $newContent;
+
+// c. file_exists: Simulate checking that the "file" now has content
+if (!empty($fileContent)) {
+    echo "File 'example.txt' now exists with updated content.\n";
+}
+
+// d. file: Simulate reading file into an array, splitting by lines
+$fileArray = explode("\n", trim($fileContent));
+echo "Content of 'example.txt' as an array:\n";
+print_r($fileArray);
+?>
